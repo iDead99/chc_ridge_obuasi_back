@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-scebjol2)sw7scua@bju938k36--1dp0e+9#01)8&&&-vy4gl4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost']
 
 
 # Application definition
@@ -102,13 +102,24 @@ WSGI_APPLICATION = 'chc_ridge_obuasi.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'chcridgeobuasi',
+#         'HOST': 'localhost',
+#         'USER': 'root',
+#         'PASSWORD': '808866'
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'chcridgeobuasi',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': '808866'
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'DvdABjWxRDuqmWUvcDzmIMWrvVKjtLxB',
+        'HOST': 'postgres.railway.internal',
+        'PORT': '5432',
     }
 }
 
@@ -148,6 +159,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
