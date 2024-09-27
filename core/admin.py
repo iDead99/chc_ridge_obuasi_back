@@ -32,5 +32,14 @@ from django.contrib import admin
 @admin.register(Member)
 class MemberAdmin(admin.ModelAdmin):
     list_display = ["first_name", "last_name", "email", "phone", "residence", "gps_address", "date_registered"]
+    list_per_page=10
+    list_filter = ['date_registered']
     ordering = ["first_name", "last_name", "date_registered"]
     exclude = ["date_registered"]
+    search_fields=["first_name__istartswith",
+                   "last_name__istartswith",
+                   "email__istartswith",
+                   "phone__istartswith",
+                   "residence__istartswith",
+                   "gps_address__istartswith",
+                   "date_registered__istartswith"]
